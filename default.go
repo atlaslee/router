@@ -15,7 +15,7 @@ func (this *Default) Get(path string) (handler Handler) {
 		return nil
 	}
 
-	handler, _ := this.handlers[path]
+	handler, _ = this.handlers[path]
 	return
 }
 
