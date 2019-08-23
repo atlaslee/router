@@ -62,3 +62,7 @@ func (this *Default) Regist(handler Handler) error {
 	handler.SetPath(this.Path() + SEPARATOR + handler.Name())
 	return nil
 }
+
+func New(name string) *Default {
+	return &Default{name: name, handlers: map[string]Handler{}}
+}
