@@ -1,19 +1,22 @@
 package router
 
 import (
-	"errors"
 	"io"
 	"strings"
-)
-
-var (
-	ERR_UNINITIALIZED_ROUTER = errors.New("Uninitialized router.")
-	ERR_UNSUPPORT_ROUTER     = errors.New("Unsupport router.")
 )
 
 type Default struct {
 	name, path string
 	handlers   map[string]Handler
+}
+
+func (this *Default) Get(path string) (handler Handler) {
+	if this.handlers == nil {
+		return nil
+	}
+
+	handler, _ := this.handlers[path]
+	return
 }
 
 func (this *Default) Name() string {
