@@ -8,4 +8,5 @@ type Request interface {
 	io.ReadCloser
 	From() string
 	Session() Session
+	SetSession(Session)
 }
